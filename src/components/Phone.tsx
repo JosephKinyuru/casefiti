@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { cn } from "@/lib/utils"
 import { HTMLAttributes } from "react"
 
@@ -20,7 +21,7 @@ const Phone = ({ imgSrc, className, dark = false, ...props}: PhoneProps) => {
         <div className="absolute -z-10 inset-0">
             <img 
                 src={imgSrc} 
-                className="object-cover" 
+                className="object-cover min-w-full min-h-full" 
                 alt="overlaying phone image"
             />
         </div>
