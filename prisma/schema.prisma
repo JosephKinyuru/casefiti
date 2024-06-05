@@ -52,16 +52,16 @@ model Configuration {
 }
 
 model User {
-  id                    String @id @default(cuid())
+  id                    String     @id @default(cuid())
   email                 String
   Order                 Order[]
 
-  createdAt             DateTime  @default(now())
-  updatedAt             DateTime  @updatedAt
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
 }
 
 model Order {
-  id                    String              @id @default(cuid())
+  id                    String               @id @default(cuid())
   configurationId       String
   configuration         Configuration        @relation(fields: [configurationId], references: [id])
   user                  User                 @relation(fields: [userId], references: [id])
