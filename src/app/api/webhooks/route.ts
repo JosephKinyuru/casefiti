@@ -92,12 +92,14 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ result: event, ok: true })
-  } catch (err) {
-    console.error(err)
+  } catch (err: any) { 
+    console.error(err);
+
+    const errorMessage: string = `Something went wrong: ${err.message}`; 
 
     return NextResponse.json(
-      { message: 'Something went wrong', ok: false },
+      { message: errorMessage, ok: false, error: err }, 
       { status: 500 }
-    )
-  }
+    );
+}
 }
