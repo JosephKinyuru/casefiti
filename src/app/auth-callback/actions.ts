@@ -6,7 +6,7 @@ import { currentUser } from '@clerk/nextjs/server'
 export const getAuthStatus = async () => {
     const user = await currentUser()
 
-    if(!user?.id || user?.primaryEmailAddress?.emailAddress) {
+    if(!user?.id || !user?.primaryEmailAddress?.emailAddress) {
         throw new Error("Invalid user data")
     }
 
