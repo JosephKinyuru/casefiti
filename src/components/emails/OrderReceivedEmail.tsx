@@ -11,7 +11,7 @@ const OrderReceivedEmail = ({
     orderDate: string
 }) => {
 
-  const baseUrl =process.env.NODE_ENV === "development" ? "http://localhost:3000"  : "https://casecobra-bice.vercel.app"
+  const baseUrl =process.env.NODE_ENV === "development" ? "http://localhost:3000"  : "https://casefiti.vercel.app"
 
   return (
     <Html>
@@ -75,7 +75,7 @@ const OrderReceivedEmail = ({
 
             <Row>
               <Text style={footer.text}>
-              © CaseCobra, Inc. All Rights Reserved.
+              © CaseFiti, Inc. All Rights Reserved.
               </Text>
             </Row>
           </Section>

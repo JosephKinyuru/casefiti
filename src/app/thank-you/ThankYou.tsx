@@ -66,7 +66,7 @@ const ThankYou = () => {
               You made a great choice!
             </h4>
             <p className="mt-2 text-sm text-zinc-600">
-              We at casecobra believe that a case doesn't only need to look good, but also last you for the tears to come. We offer a 5-year print guarantee: If your case isn't of the highest quality, we'll replace it for free.
+              We at casefiti believe that a case doesn't only need to look good, but also last you for the tears to come. We offer a 5-year print guarantee: If your case isn't of the highest quality, we'll replace it for free.
             </p>
           </div>
         </div>
