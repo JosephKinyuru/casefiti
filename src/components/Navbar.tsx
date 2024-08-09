@@ -4,6 +4,7 @@ import { buttonVariants } from "./ui/button"
 import { ArrowRight } from "lucide-react"
 import { currentUser } from "@clerk/nextjs/server"
 import { UserButton } from "@clerk/nextjs"
+import Menu from "./MobileMenu/Menu"
 
 const Navbar = async () => {
 
@@ -11,13 +12,16 @@ const Navbar = async () => {
   const isAdmin = user?.primaryEmailAddress?.emailAddress === process.env.ADMIN_EMAIL
 
   return (
-    <nav className="sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
+    <nav className="fixed md:sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
         <MaxWidthWrapper>
             <div className="flex h-14 items-center justify-between border-b border-zinx-200">
                 <Link href={"/"} className="flex z-40 font-semibold">
-                    case<span className="text-green-600">cobra</span>
+                    case<span className="text-green-600">Fiti</span>
                 </Link>
-                <div className="h-full flex items-center space-x-4">
+
+                 <Menu isAuth={!!user}/>
+
+                <div className="hidden h-full  items-center space-x-4 sm:flex">
                     {user ? (
                     <>
                         <UserButton showName/>
