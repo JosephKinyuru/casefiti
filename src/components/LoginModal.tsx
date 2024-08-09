@@ -2,6 +2,8 @@ import type { Dispatch, SetStateAction } from "react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./ui/dialog"
 import Image from "next/image"
 import { SignInButton, SignUpButton } from "@clerk/nextjs"
+import Link from "next/link"
+import { buttonVariants } from "./ui/button"
 
 const LoginModal = ({
     isOpen, 
@@ -37,8 +39,18 @@ const LoginModal = ({
             </DialogHeader>
 
             <div className="grid grid-cols-2 gap-6 divide-x divide-gray-200">
-                <SignInButton>Login</SignInButton>
-                <SignUpButton>Sign up</SignUpButton>
+                <Link 
+                    href={"/api/auth/sign-in"}
+                    className={buttonVariants({ variant: 'outline' })}
+                >
+                    Login
+                </Link>
+                <Link 
+                    href={"/api/auth/sign-up"}
+                    className={buttonVariants({ variant: 'default' })}
+                >
+                    Sign up
+                </Link>
             </div>
         </DialogContent>
     </Dialog>
