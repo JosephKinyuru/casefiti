@@ -53,7 +53,7 @@ const DesignPreview = ({configuration}: {configuration: Configuration}) => {
             description: "There was an error on our end. Please try again.",
             variant: 'destructive'
         })
-        console.log(e.message)
+        console.log(e)
     }
   })
 
