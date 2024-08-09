@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 export const formatPrice = (price:number) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: 'currency',
-    currency: 'USD',
+    currency: 'KSH',
   })
 
 
@@ -18,7 +18,7 @@ export const formatPrice = (price:number) => {
 }
 
 export function constructMetadata({
-  title = "Casecobra custom high-quality phone cases",
+  title = "Casefiti custom high-quality phone cases",
   description = "Create custom high1-quality phone cases in seconds",
   image = '/thumbnail.png',
   icons = '/favicon.ico'
