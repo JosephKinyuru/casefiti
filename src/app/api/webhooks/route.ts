@@ -11,7 +11,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function POST(req: Request) {
   try {
     const body = await req.text()
-    const signature = headers().get('stripe-signature')
+    const signature = req.headers.get('stripe-signature');
 
     if (!signature) {
       return new Response('Invalid signature', { status: 400 })
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     const event = stripe.webhooks.constructEvent(
       body,
       signature,
-      process.env.STRIPE_WEBHOOK_SECRET!
+      process.env.STRIPE_WEBHOOK_SECRET!.trim() // Trimming the secret
     )
 
     if (event.type === 'checkout.session.completed') {
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
       })
 
       await resend.emails.send({
-        from: 'CaseFiti <hello@joshtriedcoding.com>',
+        from: 'CaseCobra <hello@joshtriedcoding.com>',
         to: [event.data.object.customer_details.email],
         subject: 'Thanks for your order!',
         react: OrderReceivedEmail({
@@ -92,14 +92,12 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ result: event, ok: true })
-  } catch (err: any) { 
-    console.error(err);
-
-    const errorMessage: string = `Something went wrong: ${err.message}`; 
+  } catch (err) {
+    console.error(err)
 
     return NextResponse.json(
-      { message: errorMessage, ok: false, error: err }, 
+      { message: 'Something went wrong', ok: false },
       { status: 500 }
-    );
-}
+    )
+  }
 }
