@@ -18,8 +18,8 @@ export const formatPrice = (price:number) => {
 }
 
 export function constructMetadata({
-  title = "Casefiti custom high-quality phone cases",
-  description = "Create custom high1-quality phone cases in seconds",
+  title = "CaseFiti",
+  description = "Create custom high-quality phone cases in seconds",
   image = '/thumbnail.png',
   icons = '/favicon.ico'
 }: {
@@ -44,6 +44,6 @@ export function constructMetadata({
       creator: "@josephk1nyuru",
     },
     icons,
-    metadataBase: new URL('https://casecobra-bice.vercel.app/')
+    metadataBase: new URL('https://casefiti.vercel.app')
   }
 }
