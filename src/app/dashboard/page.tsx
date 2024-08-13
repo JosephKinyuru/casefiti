@@ -95,7 +95,7 @@ const Page = async () => {
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Progress value={((lastMonthSum._sum.amount ?? 0) * 100 ) / WEEKLY_GOAL}/>
+                            <Progress value={((lastMonthSum._sum.amount ?? 0) * 100 ) / MONTHLY_GOAL}/>
                         </CardFooter>
                     </Card>
                 </div>
