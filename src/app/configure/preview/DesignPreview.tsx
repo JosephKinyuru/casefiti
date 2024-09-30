@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
 import { useUser } from '@clerk/nextjs'
 import LoginModal from '@/components/LoginModal'
+import React from 'react'
 
 const DesignPreview = ({configuration}: {configuration: Configuration}) => {
 
@@ -131,7 +132,7 @@ const DesignPreview = ({configuration}: {configuration: Configuration}) => {
 
                             {finish === "textured" ? (
                                 <div className='flex items-center justify-between py-1 mt-2'>
-                                    <p className='text-gray-600'>Texttured finish</p>
+                                    <p className='text-gray-600'>Textured finish</p>
                                     <p className='font-medium text-gray-900'>
                                         {formatPrice(PRODUCT_PRICES.finish.textured / 100 )}
                                     </p>
